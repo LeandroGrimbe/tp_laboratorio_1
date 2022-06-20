@@ -7,9 +7,15 @@ float ingresoFloat(char mensaje[])
 	float num;
 
 	printf("%s",mensaje);
+	fflush(stdin);
 	isNum=scanf("%f",&num);
 
-	num=validarNumero(num, isNum, 1, num);
+	while(isNum!=1 || num<=0.00)
+	{
+		printf("\nValor inv%clido, reingrese: ", 160);
+		fflush(stdin);
+		isNum=scanf("%f",&num);
+	}
 
 	printf("\nDatos ingresados correctamente");
 	volverMenu();
@@ -17,13 +23,13 @@ float ingresoFloat(char mensaje[])
 	return num;
 }
 
-float validarNumero(float numero, int isNum, int min, int max)
+int validarEntero(int numero, int isNum, int min, int max)
 {
 	while(isNum!=1 || numero<min || numero>max)
 	{
 		printf("\nValor inv%clido, reingrese: ", 160);
 		fflush(stdin);
-		isNum=scanf("%f",&numero);
+		isNum=scanf("%d",&numero);
 	}
 
 	return numero;

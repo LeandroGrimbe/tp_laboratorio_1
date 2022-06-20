@@ -66,7 +66,7 @@ int menuVuelos(void)
 			"\n\nOpci%cn: ", 161, 162);
 
 	isNum=scanf("%d",&opcion);
-	opcion=validarNumero(opcion, isNum, 1, 2);
+	opcion=validarEntero(opcion, isNum, 1, 2);
 
 	return opcion;
 }
@@ -75,7 +75,7 @@ void mostrarResultados(int indicador, char vuelo[], float km, float precioOrigin
 {
 	if(indicador)
 	{
-		printf("\n---RESULTADOS-----------------------"
+		printf("\n---RESULTADOS-----------------------------"
 			   "\nKil%cmetros Ingresados: %.2f", 162, km);
 	}
 
@@ -112,13 +112,13 @@ void hardcodeoDatos(float km, float precioAereo, float precioLatam)
 		  btcLatam,
 		  unitarioLatam;
 
-	debitoAereo=interesesYDescuentos(precioAereo, 25); //25% de interes
-	creditoAereo=interesesYDescuentos(precioAereo, -10); //10% de descuento
+	debitoAereo=interesesYDescuentos(precioAereo, -10); //10% de descuento
+	creditoAereo=interesesYDescuentos(precioAereo, 25); //25% de interes
 	btcAereo=proporcionBitcoin(precioAereo, BTC);
 	unitarioAereo=precioPorKm(precioAereo, km);
 
-	debitoLatam=interesesYDescuentos(precioLatam,25); //25% de interes
-	creditoLatam=interesesYDescuentos(precioLatam,-10); //10% de descuento
+	debitoLatam=interesesYDescuentos(precioLatam, -10); //10% de descuento
+	creditoLatam=interesesYDescuentos(precioLatam, 25); //25% de interes
 	btcLatam=proporcionBitcoin(precioLatam,BTC);
 	unitarioLatam=precioPorKm(precioLatam, km);
 
@@ -132,7 +132,7 @@ void hardcodeoDatos(float km, float precioAereo, float precioLatam)
 int mensajeSalir(void)
 {
 	char rta;
-	int retorno;
+	int retorno=1;
 
 	printf("\n\nSeguro que desea salir? (s/n)"
 			"\nRespuesta: ");
@@ -146,15 +146,10 @@ int mensajeSalir(void)
 		scanf("%c", &rta);
 	}
 
-	if(rta=='n')
-	{
-		retorno=1;
-		volverMenu();
-	}
-	else
-	{
+	if(rta=='s')
 		retorno=0;
-	}
+	else
+		volverMenu();
 
 	return retorno;
 }

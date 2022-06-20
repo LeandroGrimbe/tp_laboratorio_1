@@ -64,13 +64,13 @@ int main()
 			case CALCULO:
 				if(banderaKm==0 && banderaAereo==0 && banderaLatam==0)
 				{
-					debitoAereo=interesesYDescuentos(precioAereo, 25); //25% de interes
-					creditoAereo=interesesYDescuentos(precioAereo, -10); //10% de descuento
+					debitoAereo=interesesYDescuentos(precioAereo, -10); //10% de descuento
+					creditoAereo=interesesYDescuentos(precioAereo, 25); //25% de interes
 					btcAereo=proporcionBitcoin(precioAereo, BTC);
 					unitarioAereo=precioPorKm(precioAereo, km);
 
-					debitoLatam=interesesYDescuentos(precioLatam,25); //25% de interes
-					creditoLatam=interesesYDescuentos(precioLatam,-10); //10% de descuento
+					debitoLatam=interesesYDescuentos(precioLatam,-10); //10% de descuento
+					creditoLatam=interesesYDescuentos(precioLatam,25); //25% de interes
 					btcLatam=proporcionBitcoin(precioLatam,BTC);
 					unitarioLatam=precioPorKm(precioLatam, km);
 

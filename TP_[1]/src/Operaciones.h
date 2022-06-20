@@ -14,11 +14,11 @@ float ingresoFloat(char mensaje[]);
 /// @brief Recibe un valor y lo valida, segun las condiciones recibidas.
 ///
 /// @param numero Valor recibido a validar.
-/// @param isNum Indicador de si lo que se recibe es realmente un numero (si es 1, es un numero, caso contrario, es otro simbolo).
+/// @param isNum Indicador de si lo que se recibe es realmente un entero (si es 1, es un entero, caso contrario, es otro simbolo).
 /// @param min Valor minimo que puede tomar el numero recibido. Si es menor, se pide reingresarlo.
 /// @param max Valor maximo que puede tomar el numero recibido. Si es mayor, se pide reingresarlo.
 /// @return Devuelve el numero validado.
-float validarNumero(float numero, int isNum, int min, int max);
+int validarEntero(int numero, int isNum, int min, int max);
 
 /// @brief Calcula el precio con interes o descuento, segun el porcentaje recibido.
 ///
